@@ -61,8 +61,6 @@ namespace StudentScoresBOC
 
         private Student GetSelectedStudent()
         {
-            int currentSelected = lsbxMain.SelectedIndex;
-
             return StudentList.students[currentSelected];
         }
 
@@ -159,6 +157,8 @@ namespace StudentScoresBOC
             {
                 HandleMathDisplay();
             }
+
+            currentSelected = lsbxMain.SelectedIndex;
         }
 
         //-------------------------------------------
