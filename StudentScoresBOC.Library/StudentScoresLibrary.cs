@@ -20,10 +20,10 @@ namespace StudentScoresBOC.Library
 
         }
 
-        public Student(string sName, int sScore)
+        public Student(string newName, int score)
         {
-            Name = sName;
-            AddScore(sScore);
+            Name = newName;
+            scores.Add(score);
         }
 
         //-------------------------------------------------------
@@ -34,12 +34,22 @@ namespace StudentScoresBOC.Library
             scores.Add(newScore);
         }
 
+        public void RemoveScore(int index)
+        {
+            scores.RemoveAt(index);
+        }
+
 
     }
 
     public class StudentList
     {
         public static List<Student> students = new List<Student>();
+
+        public StudentList()
+        {
+
+        }
 
         //-----------------------------------------------------------
         //Methods

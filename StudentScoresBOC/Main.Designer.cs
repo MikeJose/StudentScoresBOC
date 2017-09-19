@@ -45,80 +45,89 @@
             // lblStudents
             // 
             this.lblStudents.AutoSize = true;
-            this.lblStudents.Location = new System.Drawing.Point(12, 9);
+            this.lblStudents.Location = new System.Drawing.Point(9, 7);
+            this.lblStudents.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblStudents.Name = "lblStudents";
-            this.lblStudents.Size = new System.Drawing.Size(68, 17);
+            this.lblStudents.Size = new System.Drawing.Size(52, 13);
             this.lblStudents.TabIndex = 0;
             this.lblStudents.Text = "Students:";
             // 
             // lsbxMain
             // 
             this.lsbxMain.FormattingEnabled = true;
-            this.lsbxMain.ItemHeight = 16;
-            this.lsbxMain.Location = new System.Drawing.Point(15, 39);
+            this.lsbxMain.Location = new System.Drawing.Point(11, 32);
+            this.lsbxMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lsbxMain.Name = "lsbxMain";
-            this.lsbxMain.Size = new System.Drawing.Size(317, 116);
+            this.lsbxMain.Size = new System.Drawing.Size(239, 95);
             this.lsbxMain.TabIndex = 1;
+            this.lsbxMain.SelectedIndexChanged += new System.EventHandler(this.lsbxMain_SelectedIndexChanged);
             // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(157, 181);
+            this.lblTotal.Location = new System.Drawing.Point(118, 147);
+            this.lblTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(85, 17);
+            this.lblTotal.Size = new System.Drawing.Size(65, 13);
             this.lblTotal.TabIndex = 2;
             this.lblTotal.Text = "Score Total:";
             // 
             // lblCount
             // 
             this.lblCount.AutoSize = true;
-            this.lblCount.Location = new System.Drawing.Point(152, 211);
+            this.lblCount.Location = new System.Drawing.Point(114, 171);
+            this.lblCount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCount.Name = "lblCount";
-            this.lblCount.Size = new System.Drawing.Size(90, 17);
+            this.lblCount.Size = new System.Drawing.Size(69, 13);
             this.lblCount.TabIndex = 3;
             this.lblCount.Text = "Score Count:";
             // 
             // lblAverage
             // 
             this.lblAverage.AutoSize = true;
-            this.lblAverage.Location = new System.Drawing.Point(136, 239);
+            this.lblAverage.Location = new System.Drawing.Point(102, 194);
+            this.lblAverage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAverage.Name = "lblAverage";
-            this.lblAverage.Size = new System.Drawing.Size(106, 17);
+            this.lblAverage.Size = new System.Drawing.Size(81, 13);
             this.lblAverage.TabIndex = 4;
             this.lblAverage.Text = "Score Average:";
             // 
             // txtTotal
             // 
-            this.txtTotal.Location = new System.Drawing.Point(248, 178);
+            this.txtTotal.Location = new System.Drawing.Point(186, 145);
+            this.txtTotal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
-            this.txtTotal.Size = new System.Drawing.Size(84, 22);
+            this.txtTotal.Size = new System.Drawing.Size(64, 20);
             this.txtTotal.TabIndex = 5;
             this.txtTotal.TabStop = false;
             // 
             // txtCount
             // 
-            this.txtCount.Location = new System.Drawing.Point(248, 208);
+            this.txtCount.Location = new System.Drawing.Point(186, 169);
+            this.txtCount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCount.Name = "txtCount";
             this.txtCount.ReadOnly = true;
-            this.txtCount.Size = new System.Drawing.Size(84, 22);
+            this.txtCount.Size = new System.Drawing.Size(64, 20);
             this.txtCount.TabIndex = 6;
             this.txtCount.TabStop = false;
             // 
             // txtAverage
             // 
-            this.txtAverage.Location = new System.Drawing.Point(248, 239);
+            this.txtAverage.Location = new System.Drawing.Point(186, 194);
+            this.txtAverage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAverage.Name = "txtAverage";
             this.txtAverage.ReadOnly = true;
-            this.txtAverage.Size = new System.Drawing.Size(84, 22);
+            this.txtAverage.Size = new System.Drawing.Size(64, 20);
             this.txtAverage.TabIndex = 7;
             this.txtAverage.TabStop = false;
             // 
             // btnAdd_Main
             // 
-            this.btnAdd_Main.Location = new System.Drawing.Point(364, 39);
+            this.btnAdd_Main.Location = new System.Drawing.Point(273, 32);
+            this.btnAdd_Main.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAdd_Main.Name = "btnAdd_Main";
-            this.btnAdd_Main.Size = new System.Drawing.Size(99, 33);
+            this.btnAdd_Main.Size = new System.Drawing.Size(74, 27);
             this.btnAdd_Main.TabIndex = 8;
             this.btnAdd_Main.Text = "Add New";
             this.btnAdd_Main.UseVisualStyleBackColor = true;
@@ -126,9 +135,10 @@
             // 
             // btnUpdate_Main
             // 
-            this.btnUpdate_Main.Location = new System.Drawing.Point(364, 94);
+            this.btnUpdate_Main.Location = new System.Drawing.Point(273, 76);
+            this.btnUpdate_Main.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUpdate_Main.Name = "btnUpdate_Main";
-            this.btnUpdate_Main.Size = new System.Drawing.Size(99, 33);
+            this.btnUpdate_Main.Size = new System.Drawing.Size(74, 27);
             this.btnUpdate_Main.TabIndex = 9;
             this.btnUpdate_Main.Text = "Update";
             this.btnUpdate_Main.UseVisualStyleBackColor = true;
@@ -136,9 +146,10 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(364, 150);
+            this.btnDelete.Location = new System.Drawing.Point(273, 122);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(99, 33);
+            this.btnDelete.Size = new System.Drawing.Size(74, 27);
             this.btnDelete.TabIndex = 10;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -146,9 +157,10 @@
             // 
             // btnExit_Main
             // 
-            this.btnExit_Main.Location = new System.Drawing.Point(378, 234);
+            this.btnExit_Main.Location = new System.Drawing.Point(284, 190);
+            this.btnExit_Main.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnExit_Main.Name = "btnExit_Main";
-            this.btnExit_Main.Size = new System.Drawing.Size(99, 33);
+            this.btnExit_Main.Size = new System.Drawing.Size(74, 27);
             this.btnExit_Main.TabIndex = 11;
             this.btnExit_Main.Text = "Exit";
             this.btnExit_Main.UseVisualStyleBackColor = true;
@@ -156,9 +168,9 @@
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 281);
+            this.ClientSize = new System.Drawing.Size(367, 228);
             this.Controls.Add(this.btnExit_Main);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate_Main);
@@ -171,9 +183,9 @@
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.lsbxMain);
             this.Controls.Add(this.lblStudents);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmMain";
             this.Text = "Home";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

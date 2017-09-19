@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StudentScoresBOC.Library;
 
 namespace StudentScoresBOC.Library.Tests
 {
@@ -32,7 +33,6 @@ namespace StudentScoresBOC.Library.Tests
             StudentList.AddStudent(testStudent);
 
             Assert.IsTrue(StudentList.students.Contains(testStudent));
-           
         }
 
         [Test]
@@ -44,6 +44,7 @@ namespace StudentScoresBOC.Library.Tests
             StudentList.RemoveStudent(testStudent);
 
             Assert.IsFalse(StudentList.students.Contains(testStudent));
+            
         }
     }
 }
