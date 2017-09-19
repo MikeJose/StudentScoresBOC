@@ -126,9 +126,9 @@ namespace StudentScoresBOC
 
         private void DefaultStudents()
         {
-            Student matt = new Student("Matt Brigs", 95);
-            Student chris = new Student("Chris Kole", 97);
-            Student brian = new Student("Brian Wilks", 94);
+            Student matt = new Student("Matt Brigs", 95, 97, 92);
+            Student chris = new Student("Chris Kole", 97, 88, 91);
+            Student brian = new Student("Brian Wilks", 94, 79, 86);
 
             StudentList.AddStudent(matt);
             StudentList.AddStudent(chris);

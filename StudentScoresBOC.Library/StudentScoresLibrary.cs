@@ -20,10 +20,12 @@ namespace StudentScoresBOC.Library
 
         }
 
-        public Student(string newName, int score)
+        public Student(string newName, int score, int scoreTwo, int scoreThree)
         {
             Name = newName;
             scores.Add(score);
+            scores.Add(scoreTwo);
+            scores.Add(scoreThree);
         }
 
         //-------------------------------------------------------
