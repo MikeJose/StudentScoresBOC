@@ -39,16 +39,22 @@ namespace StudentScoresBOC
 
         private void btnUpdate_Main_Click(object sender, EventArgs e)
         {
-            UpdateStudent updateStudent = new UpdateStudent(GetSelectedStudent(), currentSelected);
-            updateStudent.ShowDialog();
-            OnReturn();
+            if(lsbxMain.Items.Count > 0)
+            {
+                UpdateStudent updateStudent = new UpdateStudent(GetSelectedStudent(), currentSelected);
+                updateStudent.ShowDialog();
+                OnReturn();
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            int index = lsbxMain.SelectedIndex;
-            StudentList.RemoveStudent(StudentList.students[index]);
-            OnReturn();
+            if(StudentList.students.Count > 0)
+            {
+                int index = lsbxMain.SelectedIndex;
+                StudentList.RemoveStudent(StudentList.students[index]);
+                OnReturn();
+            }         
         }
 
         private void btnExit_Main_Click(object sender, EventArgs e)
@@ -69,7 +75,16 @@ namespace StudentScoresBOC
             ClearListBox();
             isClearing = false;
             FillListBox();
-            lsbxMain.SelectedIndex = 0;
+            if(lsbxMain.Items.Count > 0)
+            {
+                lsbxMain.SelectedIndex = 0;
+            }
+            else
+            {
+                txtTotal.Text = "0";
+                txtCount.Text = "0";
+                txtAverage.Text = "0";
+            }
         }
 
         private void FillListBox()
@@ -87,25 +102,27 @@ namespace StudentScoresBOC
 
         private void HandleMathDisplay()
         {
-            if(isValid())
+            if(IsValid())
             {
-                int index = lsbxMain.SelectedIndex;
-                Student selectedStudent = StudentList.students[index];
-
-                int totalScoress = 0;
-                int numScores = 0;
-                int avgScores = 0;
-
-                foreach(int score in selectedStudent.scores)
+                if(GetSelectedStudent().scores.Count > 0)
                 {
-                    totalScoress += score;
-                    numScores++;
-                }
-                avgScores = totalScoress / numScores;
+                    Student selectedStudent = GetSelectedStudent();
 
-                txtTotal.Text = totalScoress.ToString();
-                txtCount.Text = numScores.ToString();
-                txtAverage.Text = avgScores.ToString();
+                    int totalScoress = 0;
+                    int numScores = 0;
+                    int avgScores = 0;
+
+                    foreach (int score in selectedStudent.scores)
+                    {
+                        totalScoress += score;
+                        numScores++;
+                    }
+                    avgScores = totalScoress / numScores;
+
+                    txtTotal.Text = totalScoress.ToString();
+                    txtCount.Text = numScores.ToString();
+                    txtAverage.Text = avgScores.ToString();
+                }
             }
             else
             {
@@ -115,7 +132,7 @@ namespace StudentScoresBOC
             }
         }
 
-        private bool isValid()
+        private bool IsValid()
         {
             if(lsbxMain.Items.Count <= 0)
             {
@@ -153,12 +170,12 @@ namespace StudentScoresBOC
 
         private void lsbxMain_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(isClearing == false)
+            currentSelected = lsbxMain.SelectedIndex;
+
+            if (isClearing == false)
             {
                 HandleMathDisplay();
-            }
-
-            currentSelected = lsbxMain.SelectedIndex;
+            }          
         }
 
         //-------------------------------------------

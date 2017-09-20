@@ -29,7 +29,7 @@ namespace StudentScoresBOC
 
         private void btnOkAddStudent_Click(object sender, EventArgs e)
         {
-            if(txtNameAddStudent != null)
+            if(txtNameAddStudent.Text != "")
             {
                 Student newStudent = new Student();
                 newStudent.Name = txtNameAddStudent.Text;
@@ -63,16 +63,25 @@ namespace StudentScoresBOC
 
         private void btnAddScoreAddStudent_Click(object sender, EventArgs e)
         {
-           if(txtScoreAddStudent.Text != null)
+           if(ScoreValid())
             {
-                currentScores.Add(Convert.ToInt32(txtScoreAddStudent.Text));
-                txtAllScoresAddStudent.Text = "";
-                foreach (int score in currentScores)
+                if(Convert.ToInt32(txtScoreAddStudent.Text) < 101 && Convert.ToInt32(txtScoreAddStudent.Text) > 0)
                 {
-                    txtAllScoresAddStudent.Text += score.ToString() + ", ";
+                    currentScores.Add(Convert.ToInt32(txtScoreAddStudent.Text));
+                    txtAllScoresAddStudent.Text = "";
+                    foreach (int score in currentScores)
+                    {
+                        txtAllScoresAddStudent.Text += score.ToString() + ", ";
+                    }
+                    txtScoreAddStudent.Text = "";
+                    txtScoreAddStudent.Focus();
                 }
-                txtScoreAddStudent.Text = "";
-                txtScoreAddStudent.Focus();
+                else
+                {
+                    MessageBox.Show("Must be 0-100", "Out of Range", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtScoreAddStudent.Text = "";
+                    txtScoreAddStudent.Focus();
+                } 
             }
         }
 
@@ -86,6 +95,30 @@ namespace StudentScoresBOC
             txtAllScoresAddStudent.Text = "";
         }
 
-        //----------------------------------------------------------------------
+        private bool ScoreValid()
+        {
+            if(txtScoreAddStudent.Text != "")
+            {
+                try
+                {
+                    Convert.ToInt32(txtScoreAddStudent.Text);
+                    return true;
+                }
+                catch
+                {
+                    MessageBox.Show("Only numeric characters are valid", "Invalid Score", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtScoreAddStudent.Text = "";
+                    txtScoreAddStudent.Focus();
+                    return false;
+                }                
+            }
+            else
+            {
+                MessageBox.Show("Please enter a score", "Empty Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        //----------------------------------------------------------------------       
     }
 }

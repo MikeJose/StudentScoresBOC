@@ -44,13 +44,52 @@ namespace StudentScoresBOC
 
         private void btnUpdateUpUp_Click(object sender, EventArgs e)
         {
-            Student student = StudentList.students[selectedStudent];
-            student.RemoveScore(selectedScore);
-            student.AddScore(Convert.ToInt32(txtScoreUpdateUpdate.Text));
+            if(IsValid())
+            {
+                if(Convert.ToInt32(txtScoreUpdateUpdate.Text) < 101 && Convert.ToInt32(txtScoreUpdateUpdate.Text) > 0)
+                {
+                    Student student = StudentList.students[selectedStudent];
+                    student.RemoveScore(selectedScore);
+                    student.AddScore(Convert.ToInt32(txtScoreUpdateUpdate.Text));
 
-            this.Close();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Must be 0-100", "Out of Range", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtScoreUpdateUpdate.Text = "";
+                    txtScoreUpdateUpdate.Focus();
+                }
+            }           
         }
 
         //-------------------------------------------------------------------
+        //Validator
+
+        private bool IsValid()
+        {
+            if (txtScoreUpdateUpdate.Text != "")
+            {
+                try
+                {
+                    Convert.ToInt32(txtScoreUpdateUpdate.Text);
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Only numeric characters are valid", "Invalid Score", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtScoreUpdateUpdate.Text = "";
+                    txtScoreUpdateUpdate.Focus();
+                    return false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter a score", "Empty Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        //--------------------------------------------------------------------
     }
 }

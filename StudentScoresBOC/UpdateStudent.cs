@@ -27,7 +27,10 @@ namespace StudentScoresBOC
 
             FillForm(newStudent);
             currentIndex = studentIndex;
-            lsbxScoresUpdateStudent.SelectedIndex = 0;
+            if(newStudent.scores.Count > 0)
+            {
+                lsbxScoresUpdateStudent.SelectedIndex = 0;
+            }
         }
 
         //-------------------------------------------------------------------------
@@ -60,14 +63,15 @@ namespace StudentScoresBOC
         private void btnClearUpdateStudent_Click(object sender, EventArgs e)
         {
             Student curStudent = StudentList.students[currentIndex];
+            int curCount = curStudent.scores.Count;
 
-            for (int i = 0; i < curStudent.scores.Count; i++)
+            for (int i = 0; i < curCount; i++)
             {
                 curStudent.RemoveScore(0);
             }
 
             ClearForm();
-            FillForm(StudentList.students[currentIndex]);
+            txtNameUpdateStudent.Text = curStudent.Name;
             SetIndex();
         }
 
